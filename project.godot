@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 ImageManager="*res://singletons/ImageManager.gd"
+SoundManager="*res://singletons/SoundManager.gd"
+GameManager="*res://singletons/GameManager.gd"
 
 [rendering]
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfde42qmdgmt2"]
+[gd_scene load_steps=5 format=3 uid="uid://bfde42qmdgmt2"]
 
+[ext_resource type="Script" path="res://scenes/main_scene/main_screen.gd" id="1_dl6gv"]
 [ext_resource type="LabelSettings" uid="uid://by7c0wpk3581x" path="res://assets/TITLE_84_White.tres" id="1_rstib"]
 [ext_resource type="PackedScene" uid="uid://dhlxeiga1bhfh" path="res://scenes/level_button/level_button.tscn" id="2_332x5"]
 [ext_resource type="PackedScene" uid="uid://bn3rq2mj10uq6" path="res://scenes/front_sprite/front_sprite.tscn" id="2_i2r1q"]
@@ -11,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dl6gv")
+level_button_scene = ExtResource("2_332x5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -48,24 +51,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
-
-[node name="LevelButton" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
-
-[node name="LevelButton2" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
-
-[node name="LevelButton3" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
-
-[node name="LevelButton4" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
-
-[node name="LevelButton5" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
-
-[node name="LevelButton6" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
-layout_mode = 2
 
 [node name="Spacer3" type="Control" parent="VBoxContainer"]
 layout_mode = 2
