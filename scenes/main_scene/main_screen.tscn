@@ -1,14 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfde42qmdgmt2"]
 
-[ext_resource type="FontFile" uid="uid://rveomexaskar" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_dhhcb"]
+[ext_resource type="LabelSettings" uid="uid://by7c0wpk3581x" path="res://assets/TITLE_84_White.tres" id="1_rstib"]
+[ext_resource type="PackedScene" uid="uid://dhlxeiga1bhfh" path="res://scenes/level_button/level_button.tscn" id="2_332x5"]
 [ext_resource type="PackedScene" uid="uid://bn3rq2mj10uq6" path="res://scenes/front_sprite/front_sprite.tscn" id="2_i2r1q"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pja03"]
-font = ExtResource("1_dhhcb")
-font_size = 84
-font_color = Color(0.92549, 0.988235, 0.796078, 1)
-outline_size = 6
-outline_color = Color(0.396078, 0.639216, 0.0509804, 1)
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -44,13 +38,33 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "MEMORY MADNESS
 "
-label_settings = SubResource("LabelSettings_pja03")
+label_settings = ExtResource("1_rstib")
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="LevelsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="LevelButton" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
+layout_mode = 2
+
+[node name="LevelButton4" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
+layout_mode = 2
+
+[node name="LevelButton5" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
+layout_mode = 2
+
+[node name="LevelButton6" parent="VBoxContainer/LevelsContainer" instance=ExtResource("2_332x5")]
 layout_mode = 2
 
 [node name="Spacer3" type="Control" parent="VBoxContainer"]
