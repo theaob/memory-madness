@@ -24,6 +24,17 @@ func setup(image_data: Dictionary, frame_texture: CompressedTexture2D) -> void:
 	item_image.texture = image_data.item_texture
 	_item_name = image_data.item_name
 	reveal(false)
+	
+func kill_on_success() -> void:
+	z_index = 1
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, "disabled", true, 0)
+	tween.tween_property(self, "rotation", deg_to_rad(720), 0.5)
+	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.5)
+	tween.set_parallel(false)
+	tween.tween_interval(0.6)
+	tween.tween_property(self, "scale", Vector2(0, 0), 0)
 
 func _on_tile_selection_enabled():
 	_can_be_selected = true

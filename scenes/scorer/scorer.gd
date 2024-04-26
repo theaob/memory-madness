@@ -3,7 +3,6 @@ extends Node
 @onready var sound = $Sound
 @onready var reveal_timer = $RevealTimer
 
-var _tiles: Array = []
 var _selections: Array = []
 
 var _target_pairs: int = 0
@@ -19,10 +18,25 @@ func clear_new_game(target_pairs: int) -> void:
 	_pairs_made = 0
 	_moves_made = 0
 	_target_pairs = target_pairs
-	_tiles = get_tree().get_nodes_in_group(GameManager.TILE_GROUP)
  
+func are_selections_pair() -> bool:
+	return (
+		_selections[0].get_instance_id() != _selections[1].get_instance_id()
+		and
+		_selections[0].get_item_name() == _selections[1].get_item_name()
+	)
+
+func kill_tiles() -> void:
+	for selected_tile in _selections:
+		selected_tile.kill_on_success()
+		
+	_pairs_made += 1
+	SoundManager.play_sound(sound, SoundManager.SOUND_SUCCESS)
+
 func update_selections() -> void:
 	reveal_timer.start()
+	if are_selections_pair() == true:
+		kill_tiles()
 
 func hide_selections() -> void:
 	for selected_tile in _selections:
@@ -46,7 +60,9 @@ func _on_tile_selected(tile: MemoryTile) -> void:
 	check_pair_made(tile)
 
 func _on_reveal_timer_timeout():
-	hide_selections()
+	if are_selections_pair() == false:
+		hide_selections()
+		
 	_selections.clear()
 	SignalManager.tile_selection_enabled.emit()
 	
