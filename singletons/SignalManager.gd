@@ -6,3 +6,5 @@ signal exit_pressed()
 signal tile_selection_enabled()
 signal tile_selection_disabled()
 signal tile_selected(tile: MemoryTile)
+
+signal game_over(moves: int)
