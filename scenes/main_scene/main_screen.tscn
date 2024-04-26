@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfde42qmdgmt2"]
+[gd_scene load_steps=4 format=3 uid="uid://bfde42qmdgmt2"]
 
 [ext_resource type="FontFile" uid="uid://rveomexaskar" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_dhhcb"]
+[ext_resource type="PackedScene" uid="uid://bn3rq2mj10uq6" path="res://scenes/front_sprite/front_sprite.tscn" id="2_i2r1q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pja03"]
 font = ExtResource("1_dhhcb")
@@ -58,3 +59,22 @@ size_flags_vertical = 3
 
 [node name="SpritesContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 72
+
+[node name="FrontSprite" parent="VBoxContainer/SpritesContainer" instance=ExtResource("2_i2r1q")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="VBoxContainer/SpritesContainer" instance=ExtResource("2_i2r1q")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="VBoxContainer/SpritesContainer" instance=ExtResource("2_i2r1q")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="VBoxContainer/SpritesContainer" instance=ExtResource("2_i2r1q")]
+layout_mode = 2
+
+[node name="Spacer4" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
