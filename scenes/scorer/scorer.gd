@@ -1,5 +1,7 @@
 extends Node
 
+class_name Scorer
+
 @onready var sound = $Sound
 @onready var reveal_timer = $RevealTimer
 
@@ -12,6 +14,12 @@ var _pairs_made: int = 0
 func _ready():
 	SignalManager.tile_selected.connect(_on_tile_selected)
 	SignalManager.exit_pressed.connect(_on_exit_pressed)
+	
+func get_moves_made() -> String:
+	return str(_moves_made)
+	
+func get_pairs_made() -> String:
+	return "%s / %s" % [ _pairs_made, _target_pairs ]
 	
 func clear_new_game(target_pairs: int) -> void: 
 	_selections.clear()
