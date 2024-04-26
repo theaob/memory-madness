@@ -54,3 +54,5 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("3_w40l3")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
