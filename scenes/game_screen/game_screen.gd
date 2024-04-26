@@ -4,12 +4,10 @@ extends Control
 
 @onready var sound = $Sound
 @onready var tile_container = $HBoxContainer/PlayContainer/TileContainer
+@onready var scorer = $Scorer
 
 func _ready():
 	SignalManager.level_selected.connect(_on_level_selected)
-
-func _process(delta):
-	pass
 
 func add_memory_tile(image: Dictionary, frame_image: CompressedTexture2D) -> void:
 	var new_tile = memory_tile_scene.instantiate()
@@ -28,3 +26,5 @@ func _on_level_selected(level: int):
 	
 	for image_dictionary in level_selection.image_list:
 		add_memory_tile(image_dictionary, frame_image)
+		
+	scorer.clear_new_game(level_selection.target_pairs)
