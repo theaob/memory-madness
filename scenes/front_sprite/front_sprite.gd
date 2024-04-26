@@ -14,12 +14,12 @@ func set_random_texture() -> void:
 
 func tween_sprite() -> void:
 	var tween = get_tree().create_tween()
-	tween.set_loops()
 	tween.tween_callback(set_random_texture)
 	tween.tween_property(self, "scale", SCALE_NORMAL, SCALE_TIME)
 	tween.tween_property(self, "rotation", get_random_rotation(), get_random_spin_time())
 	tween.tween_property(self, "rotation", get_random_rotation(), get_random_spin_time())
 	tween.tween_property(self, "scale", SCALE_SMALL, SCALE_TIME)
+	tween.tween_callback(tween_sprite)
 
 func get_random_spin_time() -> float:
 	return randf_range(SPIN_TIME_RANGE.x, SPIN_TIME_RANGE.y)
